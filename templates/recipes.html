@@ -1,0 +1,22 @@
+{% extends 'base.html'%} {% block content %}
+<div class="container">
+    <div class="container-fluid">
+
+        <div class="container col-md-12">
+            <div class="row container-fluid ">
+                {% for recipes in recipeCollection %}
+                <h1>{{recipes.name}}</h1>
+                <li>{{recipes.recipes}}</li>
+                <li>{{recipes.ingredients}}</li>
+                <li>{{recipes.cooking}}</li>
+                <li>{{ recipes.style }}</li>
+
+                {% endfor %}
+            </div>
+        </div>
+
+
+    </div>
+</div>
+
+{% endblock %}

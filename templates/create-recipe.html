@@ -1,0 +1,31 @@
+{% extends 'base.html'%} {% block content %}
+<div class="container">
+    <div class="container-fluid">
+
+        <div class="container">
+            <h3>Add Recipe</h3>
+
+            <div class="container-fluid row">
+                <form action="{{ url_for('create_recipe') }}" method="POST" >
+                    <input id="style" name="style" type="text" class="form-control" placeholder="Name Of Dish">
+                    <textarea id="ingredients" name="ingredients" class="form-control" placeholder="Ingredients" rows="3"></textarea>
+                    <textarea id="cooking" name="cooking" class="form-control" placeholder="Cooking Instructions" rows="5"></textarea>
+                    
+                    <div class="form-group">
+                        <p class="help-block">Please check which style the dish is</p>
+                    </div>
+                    <div class="checkbox">
+                        <label>
+                            <label for="style">Country Of Origin:</label>
+                            <input type="text" name="sytle" />
+                        </label>
+                    </div>
+                    <button type="submit" class="btn btn-default">Submit</button>
+                </form>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+{% endblock %}
