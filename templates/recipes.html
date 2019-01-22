@@ -6,11 +6,14 @@
             <div class="row container-fluid ">
                 {% for recipes in recipeCollection %}
                 <h1>{{recipes.name}}</h1>
-                <li>{{recipes.recipes}}</li>
-                <li>{{recipes.ingredients}}</li>
-                <li>{{recipes.cooking}}</li>
-                <li>{{ recipes.style }}</li>
-
+                <h2>Submitted by: {{ recipes.user }}</h2>
+                <ul>
+                    <li>{{recipes.recipes}}</li>
+                    <li>{{recipes.ingredients}}</li>
+                    <li>{{recipes.cooking}}</li>
+                    <li>{{ recipes.style }}</li>
+                    <li></li>
+                </ul>
                 {% endfor %}
             </div>
         </div>
