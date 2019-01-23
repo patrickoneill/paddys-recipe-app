@@ -27,6 +27,13 @@ def create_recipe():
     return render_template('createRecipe.html',
     style=mongo.db.style.find())
 
+@app.route('/add_recipe', methods=['POST'])
+def add_recipe():
+    recipeCollection = mongo.db.recipeCollection
+    recipeCollection.insert_one(request.form.to_dict())
+    return redirect(url_for('see_recipes'))
+    
+
 
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
