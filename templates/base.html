@@ -14,10 +14,10 @@
 </head>
 
 <body>
-    <div class="container">
+    <div class="container navigation">
         <div class="container-fluid">
             <ul class="nav nav-tabs">
-                <li role="presentation" class="active"><a href="{{ url_for('index') }}"><i class="glyphicon glyphicon-home"></i></a></li>
+                <li role="presentation"><a href="{{ url_for('index') }}"><i class="glyphicon glyphicon-home"></i></a></li>
                 <li role="presentation"><a href="{{ url_for('see_recipes') }}"><i class="glyphicon glyphicon-user"></i></a></li>
                 <li role="presentation"><a href="{{ url_for('create_recipe') }}"><i class="glyphicon glyphicon-book"></i></a></li>
                 <li role="presentation"><a href="{{ url_for('edit_recipe') }}"><i class="glyphicon glyphicon-edit"></i></a></li>
@@ -32,13 +32,6 @@
     <div class="row">
         {% block content %} {% endblock %}
     </div>
-    <!-- index page
-    <div class="jumbotron">
-        <h1>Hello, world!</h1>
-        <p>...</p>
-        <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a></p>
-    </div>
-    -->
 
 
     <!-- Latest compiled and minified JavaScript -->
