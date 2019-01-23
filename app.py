@@ -34,6 +34,13 @@ def add_recipe():
     return redirect(url_for('see_recipes'))
     
 
+@app.route('/edit_recipe/<task_id>')
+def edit_recipe(task_id):
+    the_recipe = mongo.db.recipeCollection.find_one({'_id': ObjectId(task_id)})
+    all_styles = mongo.db.style.find()
+    return render_template('editRecipe.html', task=the_recipe, categories=all_styles)
+    
+
 
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
