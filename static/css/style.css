@@ -1,15 +1,38 @@
 body {
     background-color: aquamarine;
     margin: 10px;
-
+    background: url(../images/background.jpg);
+}
+.glyph-btn {
+    background-color: #4ec63b;
+    opacity: 5;
+}
+.glyphicon {
+    font-size: large;
+    color: white;
+    position: relative;
+    top: 1px;
+    display: inline-block;
+    font-family: 'Glyphicons Halflings';
+    font-style: normal;
+    font-weight: 500;
+    line-height: 2;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 .jumbotron {
     color: white;
     background-color: black;
+    padding:10px;
+    font-family: cursive;
+    text-align: center;
 }
 
 .thumbnail {
     background-color: black;
-    color: white;
+    border-radius: 20px;
+    text-decoration: underline;
+    font-family: cursive;
+    text-align: justify;
 }
