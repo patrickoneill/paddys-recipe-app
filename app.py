@@ -40,7 +40,21 @@ def edit_recipe(task_id):
     all_styles = mongo.db.style.find()
     return render_template('editRecipe.html', task=the_recipe, categories=all_styles)
     
+@app.route('/update_recipe/<task_id>', methods=['POST'])
+def update_task(task_id):
+    recipes = mongo.db.recipeCollection
+    recipes.update( {'_id': ObjectId(task_id)},
+    {
+        'recipe_name':request.form.get['recipe_name'],
+        'recipe_title':request.form.get['recipe_title'],
+        'recipe_ingredients':request.form.get['recipe_ingredients'],
+        'recipe_cooking': request.form.get['recipe_cooking'],
+        'recipe_user': request.form.get['recipe_user']
+    })
+    return redirect(url_for('see_recipes'))
+    
 
+    
 
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
