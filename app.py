@@ -33,7 +33,6 @@ def add_recipe():
     recipeCollection.insert_one(request.form.to_dict())
     return redirect(url_for('see_recipes'))
     
-
 @app.route('/edit_recipe/<task_id>')
 def edit_recipe(task_id):
     the_recipe = mongo.db.recipeCollection.find_one({'_id': ObjectId(task_id)})
@@ -58,7 +57,6 @@ def delete_recipe(task_id):
     mongo.db.recipeCollection.remove({'_id': ObjectId(task_id)})
     return redirect(url_for('see_recipes'))
     
-
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
             port=int(os.environ.get('PORT')),
