@@ -53,7 +53,10 @@ def update_task(task_id):
     })
     return redirect(url_for('see_recipes'))
     
-
+@app.route('/delete_recipe/<task_id>')
+def delete_recipe(task_id):
+    mongo.db.recipeCollection.remove({'_id': ObjectId(task_id)})
+    return redirect(url_for('see_recipes'))
     
 
 if __name__ == '__main__':
