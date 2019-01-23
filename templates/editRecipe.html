@@ -1,0 +1,41 @@
+{% extends 'base.html'%} {% block content %}
+<div class="container">
+    <div class="container-fluid">
+
+        <div class="container jumbotron">
+            <h3>Edit Recipe</h3>
+
+            <div class="container-fluid row">
+                <form action="{{ url_for('add_recipe') }}" method="POST">
+                    <input id="recipe_name" name="recipe_name" type="text" class="form-control" placeholder="Name Of Dish" value="{{ task.recipe_name }}">
+                    <br/>
+                    <input id="recipe_title" name="recipe_title" type="text" class="form-control" placeholder="Recipe Name" value="{{ task.recipe_title }}">
+                    <br/>
+                    <textarea id="recipe_ingredients" name="recipe_ingredients" class="form-control" placeholder="Ingredients" rows="3" value="">{{ task.recipe_ingredients }}</textarea>
+                    <br/>
+                    <textarea id="recipe_cooking" name="recipe_cooking" class="form-control" placeholder="Cooking Instructions" rows="5" value="">{{ task.recipe_cooking}}</textarea>
+                    <br/>
+                    <input id="recipe_user" class="form-control" type="text" name="recipe_user" placeholder="Submitted by:" value="{{ task.recipe_user }}" />
+                    <select id="recipe_style" class="form-control" name="recipe_style" value="{{ task.recipe_style }}">
+                    <br/>
+                    <option value="" disabled selected>Choose Country</option>
+                    {% for dish in categories %}
+                    {% if dish.style_name == task.style_name %}
+                      <option value="{{dish.recipe_style}}" selected >{{dish.recipe_style}}</option>
+                    {% else %}
+                     <option value="{{dish.recipe_style}}">{{dish.recipe_style}}</option>
+                    {% endif %} 
+                    {% endfor %}
+                    </select>
+                    <button class="btn btn-warning" type="submit" name="action">
+                        <i class="glyphicon glyphicon-floppy-save"></i>
+                    </button>
+                </form>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+{% endblock %}
