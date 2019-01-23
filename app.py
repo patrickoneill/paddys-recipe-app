@@ -23,7 +23,7 @@ def see_recipes():
     recipeCollection=mongo.db.recipeCollection.find(),
     style=mongo.db.style.find())
     
-@app.route('/create_recipe')
+@app.route('/create_recipe', methods = ['GET', 'POST'])
 def create_recipe():
     return render_template('create-recipe.html')
     
