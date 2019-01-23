@@ -8,18 +8,22 @@
 
                 <div class="thumbnail">
                     <div class="caption">
-                        <h1>{{recipes.name}}</h1>
+                        <h1>{{recipes.recipe_name}}</h1>
                         
                         <ul>
-                            <li>{{recipes.recipes}}</li>
-                            <li>{{recipes.ingredients}}</li>
-                            <li>{{recipes.cooking}}</li>
-                            <li>{{ recipes.style }}</li>
+                            <li>{{recipes.recipe_title}}</li>
+                            <li>{{recipes.recipe_ingredients}}</li>
+                            <li>{{recipes.recipe_cooking}}</li>
+                            <li>{{ recipes.recipe_style }}</li>
                         </ul>
                         
-                        <h2>Submitted by: {{ recipes.user }}</h2>
+                        <h2>Submitted by: {{ recipes.recipe_user }}</h2>
                         
-                        <p class="align-right"><a href="#" class="btn btn-success" role="button">Read More</a> <a href="#" class="btn btn-danger" role="button">Edit</a></p>
+                        <p class="align-right">
+                            <a href="{{url_for('delete_recipe', task_id=recipes._id)}}" class="btn btn-danger" role="button">Delete</a>
+                            <a href="{{ url_for('edit_recipe', task_id=recipes._id) }}" class="btn btn-warning" role="button">Edit</a>
+                            
+                        </p>
                     </div>
                 </div>
                 {% endfor %}
