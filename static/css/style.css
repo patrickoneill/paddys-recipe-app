@@ -1,8 +1,15 @@
 body {
-    color: red;
-    
+    background-color: aquamarine;
+    margin: 10px;
+
 }
 
-.index-tumbnail {
-    float: right;
+.jumbotron {
+    color: white;
+    background-color: black;
+}
+
+.thumbnail {
+    background-color: black;
+    color: white;
 }
