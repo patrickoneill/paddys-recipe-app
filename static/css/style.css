@@ -3,6 +3,10 @@ body {
     margin: 10px;
     background: url(../images/background.jpg);
 }
+
+.nav-tabs {
+    border: none;
+}
 .glyph-btn {
     background-color: #4ec63b;
     opacity: 5;
@@ -16,7 +20,7 @@ body {
     font-family: 'Glyphicons Halflings';
     font-style: normal;
     font-weight: 500;
-    line-height: 2;
+    line-height: 1;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
@@ -32,7 +36,7 @@ body {
 .thumbnail {
     background-color: black;
     border-radius: 20px;
-    text-decoration: underline;
+    text-decoration: none;
     font-family: cursive;
     text-align: justify;
 }
