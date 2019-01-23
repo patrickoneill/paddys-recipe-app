@@ -1,18 +1,24 @@
 {% extends 'base.html'%} {% block content %}
 <div class="container">
     <div class="container-fluid">
-
         <div class="container col-md-12">
+
             <div class="row container-fluid ">
                 {% for recipes in recipeCollection %}
-                <h1>{{recipes.name}}</h1>
-                <h2>Submitted by: {{ recipes.user }}</h2>
-                <ul>
-                    <li>{{recipes.recipes}}</li>
-                    <li>{{recipes.ingredients}}</li>
-                    <li>{{recipes.cooking}}</li>
-                    <li>{{ recipes.style }}</li>
-                </ul>
+
+                <div class="thumbnail">
+                    <div class="caption">
+                        <h1>{{recipes.name}}</h1>
+                        <h2>Submitted by: {{ recipes.user }}</h2>
+                        <ul>
+                            <li>{{recipes.recipes}}</li>
+                            <li>{{recipes.ingredients}}</li>
+                            <li>{{recipes.cooking}}</li>
+                            <li>{{ recipes.style }}</li>
+                        </ul>
+                        <p class="align-right"><a href="#" class="btn btn-success" role="button">Read More</a> <a href="#" class="btn btn-danger" role="button">Edit</a></p>
+                    </div>
+                </div>
                 {% endfor %}
             </div>
         </div>
