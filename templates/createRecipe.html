@@ -16,13 +16,61 @@
                     <textarea id="recipe_cooking" name="recipe_cooking" class="form-control" placeholder="Cooking Instructions" rows="5"></textarea>
                     <br/>
                     <input id="recipe_user" class="form-control" type="text" name="recipe_user" placeholder="Submitted by:" />
+                    <br/>
                     <select id="recipe_style" class="form-control" name="recipe_style">
                     <br/>
                     <option value="" disabled selected>Choose Country</option>
+                    <br/>
                     {% for dish in style %}
                     <option value="{{dish.recipe_style}}">{{dish.recipe_style}}</option>
                     {% endfor %}
                     </select>
+                    <br/>
+                    <h4>Allergines - Please check boxes where needed</h4>
+                    <label class="checkbox-inline">
+                      <input type="checkbox" id="inlineCheckbox1" value="option1"> Gluten
+                    </label>
+                    <label class="checkbox-inline">
+                      <input type="checkbox" id="inlineCheckbox2" value="option2"> Shellfish
+                    </label>
+                    <label class="checkbox-inline">
+                      <input type="checkbox" id="inlineCheckbox3" value="option3"> Egg
+                    </label>
+                    <label class="checkbox-inline">
+                      <input type="checkbox" id="inlineCheckbox3" value="option3"> Fish
+                    </label>
+                    <label class="checkbox-inline">
+                      <input type="checkbox" id="inlineCheckbox3" value="option3"> Peanuts
+                    </label>
+                    <label class="checkbox-inline">
+                      <input type="checkbox" id="inlineCheckbox3" value="option3"> Soybeans
+                    </label>
+                    <label class="checkbox-inline">
+                      <input type="checkbox" id="inlineCheckbox3" value="option3"> Milk
+                    </label>
+                    <label class="checkbox-inline">
+                      <input type="checkbox" id="inlineCheckbox3" value="option3"> Tree Nuts
+                    </label>
+                    <label class="checkbox-inline">
+                      <input type="checkbox" id="inlineCheckbox3" value="option3"> Celery
+                    </label>
+                    <label class="checkbox-inline">
+                      <input type="checkbox" id="inlineCheckbox3" value="option3"> Mustard
+                    </label>
+                    <label class="checkbox-inline">
+                      <input type="checkbox" id="inlineCheckbox3" value="option3"> Sesame Seeds
+                    </label>
+                    <label class="checkbox-inline">
+                      <input type="checkbox" id="inlineCheckbox3" value="option3"> Sulphur dioxide and sulphites
+                    </label>
+                    <label class="checkbox-inline">
+                      <input type="checkbox" id="inlineCheckbox3" value="option3"> Lupin
+                    </label>
+                    <label class="checkbox-inline">
+                      <input type="checkbox" id="inlineCheckbox3" value="option3"> Molluscs
+                    </label>
+                    <br/>
+                    
                     <button class="btn btn-warning" type="submit" name="action"><i class="glyphicon glyphicon-floppy-save"></i></button>
                 </form>
             </div>
