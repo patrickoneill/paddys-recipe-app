@@ -1,41 +1,35 @@
 {% extends 'base.html'%} {% block content %}
 <div class="container">
-    <div class="container-fluid">
-        <div class="jumbotron">
-            <h1>Welcome To Cook and Create!</h1>
-            <hr/>
-            <p>This is a place where you can get come for some of the best recipes that people have post and a chance for you to help built something unique</p>
-            <hr class="horizontal-line" />
-            <p><a class="btn btn-warning btn-lg" href="{{ url_for('see_recipes') }}" role="button">See Recpies</a></p>
-        </div>
-    </div>
+    <h1>Welcome To Cook and Create!</h1>
+    <hr/>
+    <p>This is a place where you can get come for some of the best recipes that people have post and a chance for you to help built something unique</p>
 </div>
 <div class="container">
-    <div class="container-fluid col-md-12">
-        <div class="col-sm-6 col-md-4">
-            <div class="thumbnail">
-                <div class="caption">
-                    <h3>Thumbnail label</h3>
-                    <p></p>
-                    <p><a href="#" class="btn btn-success" role="button">Read More</a></p>
+    <div class="row">
+        <div class="col s12 m12">
+            <div class="card blue-grey darken-1">
+                <div class="card-content white-text">
+                    <h3>See What People Are cooking</h3>
+                    <p>Click below to see some of our users favourite dishes and try them out yourself</p>
+                </div>
+                <div class="card-action">
+                    <p><a class="waves-effect waves-light btn" href="{{ url_for('see_recipes') }}" role="button">See Recpies</a></p>
                 </div>
             </div>
         </div>
-        <div class="col-sm-6 col-md-4">
-            <div class="thumbnail">
-                <div class="caption">
-                    <h3>Thumbnail label</h3>
-                    <p></p>
-                    <p><a href="#" class="btn btn-success" role="button">Read More</a></p>
+    </div>
+    <div class="row">
+        <div class="col s12 m12">
+            <div class="card blue-grey darken-1">
+                <div class="card-content white-text">
+                    <div class="row input-field">
+                        <form method="POST" class="index-form-input text-center">
+                        <input id="recipe_user" class="col s12 m12" type="text" name="recipe_user" placeholder="User Login:" />
+                        </form>
+                    </div>
                 </div>
-            </div>
-        </div>
-        <div class="col-md-4 hidden-sm hidden-xs">
-            <div class="thumbnail">
-                <div class="caption">
-                    <h3>Thumbnail label</h3>
-                    <p></p>
-                    <p><a href="#" class="btn btn-success" role="button">Read More</a></p>
+                <div class="card-action">
+                    <button class="waves-effect waves-light btn">Submit</button>
                 </div>
             </div>
         </div>
