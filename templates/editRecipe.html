@@ -1,41 +1,113 @@
 {% extends 'base.html'%} {% block content %}
 <div class="container">
-    <div class="container-fluid">
-
-        <div class="container jumbotron">
-            <h3>Edit Recipe</h3>
-
-            <div class="container-fluid row">
-                <form action="{{ url_for('add_recipe') }}" method="POST">
-                    <input id="recipe_name" name="recipe_name" type="text" class="form-control" placeholder="Name Of Dish" value="{{ task.recipe_name }}">
-                    <br/>
-                    <input id="recipe_title" name="recipe_title" type="text" class="form-control" placeholder="Recipe Name" value="{{ task.recipe_title }}">
-                    <br/>
-                    <textarea id="recipe_ingredients" name="recipe_ingredients" class="form-control" placeholder="Ingredients" rows="3" value="">{{ task.recipe_ingredients }}</textarea>
-                    <br/>
-                    <textarea id="recipe_cooking" name="recipe_cooking" class="form-control" placeholder="Cooking Instructions" rows="5" value="">{{ task.recipe_cooking}}</textarea>
-                    <br/>
-                    <input id="recipe_user" class="form-control" type="text" name="recipe_user" placeholder="Submitted by:" value="{{ task.recipe_user }}" />
-                    <select id="recipe_style" class="form-control" name="recipe_style" value="{{ task.recipe_style }}">
-                    <br/>
-                    <option value="" disabled selected>Choose Country</option>
-                    {% for dish in categories %}
-                    {% if dish.style_name == task.style_name %}
-                      <option value="{{dish.recipe_style}}" selected >{{dish.recipe_style}}</option>
-                    {% else %}
-                     <option value="{{dish.recipe_style}}">{{dish.recipe_style}}</option>
-                    {% endif %} 
-                    {% endfor %}
-                    </select>
-                    <button class="btn btn-warning" type="submit" name="action">
-                        <i class="glyphicon glyphicon-floppy-save"></i>
-                    </button>
-                </form>
+  <div class="row">
+    <div class="col s12 m12">
+      <div class="card blue-grey darken-1">
+        <div class="card-content white-text input-field">
+          <h3>Edit Recipe</h3>
+          <form action="{{ url_for('add_recipe') }}" method="POST">
+            <input id="recipe_name" name="recipe_name" type="text" class="col s6 m6" placeholder="Name Of Dish" value="{{ task.recipe_name }}">
+            <input id="recipe_title" name="recipe_title" type="text" class="col s6 m6" placeholder="Recipe Name" value="{{ task.recipe_title }}">
+            <textarea id="recipe_ingredients" name="recipe_ingredients" class="materialize-textarea" placeholder="Ingredients" rows="3" value="{{ task.recipe_ingredients }}"></textarea>
+            <textarea id="recipe_cooking" name="recipe_cooking" class="materialize-textarea" placeholder="Cooking Instructions" rows="5" value="{{ task.recipe_cooking }}"></textarea>
+            <input id="recipe_user" class="col s12 m12" type="text" name="recipe_user" placeholder="Submitted by:" value="{{ task.recipe_user }}" />
+            <select id="recipe_style" class="form-control" name="recipe_style" value="{{ task.recipe_style }}">
+                        <option value="" disabled selected>Choose Country</option>
+                        {% for dish in categories %}
+                        {% if dish.style_name == task.style_name %}
+                        <option value="{{dish.recipe_style}}" selected >{{dish.recipe_style}}</option>
+                        {% else %}
+                        <option value="{{dish.recipe_style}}">{{dish.recipe_style}}</option>
+                        {% endif %} 
+                        {% endfor %}
+                        </select>
+            <div class="row col s12 m12">
+              {% for allergy in allergine %}
+              <p>
+                <label for="allergy">
+                                <input type="checkbox" />
+                                <span>{{allergy.dish_allergine}}</span>
+                                </label>
+              </p>
+              {% endfor %}
             </div>
-
+            <button class="waves-effect waves-light btn" type="submit" name="action"><i class="glyphicon glyphicon-floppy-save"></i></button>
+          </form>
+          <!--<form action="{{ url_for('add_recipe') }}" method="POST">-->
+          <!--    <input id="recipe_name" name="recipe_name" type="text" class="form-control" placeholder="Name Of Dish" value="{{ task.recipe_name }}">-->
+          <!--    <br/>-->
+          <!--    <input id="recipe_title" name="recipe_title" type="text" class="form-control" placeholder="Recipe Name" value="{{ task.recipe_title }}">-->
+          <!--    <br/>-->
+          <!--    <textarea id="recipe_ingredients" name="recipe_ingredients" class="form-control" placeholder="Ingredients" rows="3" value="">{{ task.recipe_ingredients }}</textarea>-->
+          <!--    <br/>-->
+          <!--    <textarea id="recipe_cooking" name="recipe_cooking" class="form-control" placeholder="Cooking Instructions" rows="5" value="">{{ task.recipe_cooking}}</textarea>-->
+          <!--    <br/>-->
+          <!--    <input id="recipe_user" class="form-control" type="text" name="recipe_user" placeholder="Submitted by:" value="{{ task.recipe_user }}" />-->
+          <!--    <select id="recipe_style" class="form-control" name="recipe_style" value="{{ task.recipe_style }}">-->
+          <!--    <br/>-->
+          <!--    <option value="" disabled selected>Choose Country</option>-->
+          <!--    {% for dish in categories %}-->
+          <!--    {% if dish.style_name == task.style_name %}-->
+          <!--      <option value="{{dish.recipe_style}}" selected >{{dish.recipe_style}}</option>-->
+          <!--    {% else %}-->
+          <!--     <option value="{{dish.recipe_style}}">{{dish.recipe_style}}</option>-->
+          <!--    {% endif %} -->
+          <!--    {% endfor %}-->
+          <!--    </select>-->
+          <!--    <br/>-->
+          <!--    <h4>Allergines - Please check boxes where needed</h4>-->
+          <!--    <label class="checkbox-inline">-->
+          <!--      <input type="checkbox" id="inlineCheckbox1" value="option1"> Gluten-->
+          <!--    </label>-->
+          <!--    <label class="checkbox-inline">-->
+          <!--      <input type="checkbox" id="inlineCheckbox2" value="option2"> Shellfish-->
+          <!--    </label>-->
+          <!--    <label class="checkbox-inline">-->
+          <!--      <input type="checkbox" id="inlineCheckbox3" value="option3"> Egg-->
+          <!--    </label>-->
+          <!--    <label class="checkbox-inline">-->
+          <!--      <input type="checkbox" id="inlineCheckbox3" value="option3"> Fish-->
+          <!--    </label>-->
+          <!--    <label class="checkbox-inline">-->
+          <!--      <input type="checkbox" id="inlineCheckbox3" value="option3"> Peanuts-->
+          <!--    </label>-->
+          <!--    <label class="checkbox-inline">-->
+          <!--      <input type="checkbox" id="inlineCheckbox3" value="option3"> Soybeans-->
+          <!--    </label>-->
+          <!--    <label class="checkbox-inline">-->
+          <!--      <input type="checkbox" id="inlineCheckbox3" value="option3"> Milk-->
+          <!--    </label>-->
+          <!--    <label class="checkbox-inline">-->
+          <!--      <input type="checkbox" id="inlineCheckbox3" value="option3"> Tree Nuts-->
+          <!--    </label>-->
+          <!--    <label class="checkbox-inline">-->
+          <!--      <input type="checkbox" id="inlineCheckbox3" value="option3"> Celery-->
+          <!--    </label>-->
+          <!--    <label class="checkbox-inline">-->
+          <!--      <input type="checkbox" id="inlineCheckbox3" value="option3"> Mustard-->
+          <!--    </label>-->
+          <!--    <label class="checkbox-inline">-->
+          <!--      <input type="checkbox" id="inlineCheckbox3" value="option3"> Sesame Seeds-->
+          <!--    </label>-->
+          <!--    <label class="checkbox-inline">-->
+          <!--      <input type="checkbox" id="inlineCheckbox3" value="option3"> Sulphur dioxide and sulphites-->
+          <!--    </label>-->
+          <!--    <label class="checkbox-inline">-->
+          <!--      <input type="checkbox" id="inlineCheckbox3" value="option3"> Lupin-->
+          <!--    </label>-->
+          <!--    <label class="checkbox-inline">-->
+          <!--      <input type="checkbox" id="inlineCheckbox3" value="option3"> Molluscs-->
+          <!--    </label>-->
+          <!--    <br/>-->
+          <!--    <button class="btn btn-warning" type="submit" name="action">-->
+          <!--        <i class="glyphicon glyphicon-floppy-save"></i>-->
+          <!--    </button>-->
+          <!--</form>-->
         </div>
 
-    </div>
-</div>
+      </div>
 
-{% endblock %}
+    </div>
+  </div>
+
+  {% endblock %}
