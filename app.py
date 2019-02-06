@@ -1,11 +1,9 @@
 import os
-from flask import Flask, render_template, redirect, url_for, request
+from flask import Flask, render_template, redirect, url_for, request, session, escape
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 
 app = Flask(__name__)
-app.secret_key = "some_secret"
-
 app.config["MONGO_DBNAME"] = "recipes-app"
 app.config["MONGO_URI"] = "mongodb://admin:dragon99@ds159387.mlab.com:59387/recipes-app"
 
@@ -25,9 +23,10 @@ def see_recipes():
 @app.route('/create_recipe', methods = ['GET','POST'])
 def create_recipe():
     return render_template('createRecipe.html',
-    style=mongo.db.style.find())
+    style=mongo.db.style.find(),
+    allergine=mongo.db.allergine.find())
 
-@app.route('/add_recipe', methods=['POST'])
+@app.route('/add_recipe', methods=['GET', 'POST'])
 def add_recipe():
     recipeCollection = mongo.db.recipeCollection
     recipeCollection.insert_one(request.form.to_dict())
