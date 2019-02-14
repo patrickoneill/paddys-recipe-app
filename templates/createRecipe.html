@@ -2,42 +2,63 @@
 <div class="container">
     <div class="row">
         <div class="col s12 m12">
-            <div class="card blue-grey darken-1">
+            <div class="card light-green darken-4 ">
                 <div class="card-content white-text input-field">
-                    <h3>Add Recipe</h3>
+                    <div class="card light-green"><h3 class="center-align">Add Recipe</h3><br/></div>
                     <form action="{{ url_for('add_recipe') }}" method="POST">
-                        <input id="recipe_name" name="recipe_name" type="text" class="col s6 m6" placeholder="Name Of Dish">
-                        <input id="recipe_title" name="recipe_title" type="text" class="col s6 m6" placeholder="Recipe Name">
-                        <textarea id="recipe_ingredients" name="recipe_ingredients" class="materialize-textarea" placeholder="Ingredients" rows="3"></textarea>
-                        <textarea id="recipe_cooking" name="recipe_cooking" class="materialize-textarea" placeholder="Cooking Instructions" rows="5"></textarea>
-                        <input id="recipe_user" class="col s12 m12" type="text" name="recipe_user" placeholder="Submitted by:" />
-                        <input id="recipe_style" type="text" name="{{ recipe_style }}" placeholder="Country of Origin: " />
-                        <div class="col s12">
-                            <p class="additional-label">country:</p>
-                            {% for country in style %}
-                            <div class="col s6">
-                                <p>
-                                    <label for="country{{ loop.index }}">
-                                    <input class="" type="checkbox" id="country{{ loop.index }}" name="{{ country.recipe_style }}" value = "{{ country.recipe_style }}"/>
-                                    <span>{{ country.recipe_style }}</span>
-                                    </label>
-                                </p>
-                            </div>
-                            {% endfor %}
+                        <div class="input-field col s12 m6">
+                            <input id="recipe_name" name="recipe_name" type="text" class="" placeholder="Name Of Dish">
                         </div>
-                        <div class="col s12">
-                            <p class="additional-label">Allergens contained:</p>
-                            {% for allergy in allergine %}
-                            <div class="col s6">
-                                <p>
-                                    <label for="allergy{{ loop.index }}">
-                                    <input class="" type="checkbox" id="allergy{{ loop.index }}" name="{{ allergy.dish_allergine }}" value = "{{ allergy.dish_allergine }}"/>
-                                    <span>{{ allergy.dish_allergine }}</span>
-                                    </label>
-                                </p>
-                            </div>
-                            {% endfor %}
+                        <div class="input-field col s12 m6">
+                            <input id="recipe_title" name="recipe_title" type="text" class="" placeholder="Recipe Name">
                         </div>
+                        <div class="input-field col s12 m4">
+                            <input id="recipe_serving" type="number" name="recipe_serving" placeholder="People served" class="">
+                        </div>
+                        <div class="input-field col s12 m8">
+                            <input id="recipe_time" type="text" name="recipe_time" placeholder="Cooking Time e.g '1hr15mins'" class="">
+                        </div>
+                        <div class="input-field col s12 m12">
+                            <textarea id="recipe_ingredients" name="recipe_ingredients" class="materialize-textarea" placeholder="Ingredients" rows="3"></textarea>
+                        </div>
+                        <div class="input-field col s12 m12">
+                            <textarea id="recipe_cooking" name="recipe_cooking" class="materialize-textarea" placeholder="Cooking Instructions" rows="5"></textarea>
+                        </div>
+                        <div class="input-field col s12 m12">
+                            <input id="recipe_user" class="col s12 m12" type="text" name="recipe_user" placeholder="Submitted by:" />
+                        </div>
+
+
+                        <div class="input-field col s12">
+                            <select id="style" name="recipe_style">
+                                  <option value="" disabled selected>Choose Category</option>
+                                  {% for dish in recipeCat %}
+                                  <option value="{{dish.recipe_style}}">{{dish.recipe_style}}</option>
+                                  {% endfor %}
+                                </select>
+                            <label>Country of Origin: </label>
+                        </div>
+
+                        <div class="input-field col s12">
+                            <select id="allergys" name="dish_allergy" multiple>
+                                  <option value="" disabled selected>Choose Category</option>
+                                  {% for al in recipeAllergy %}
+                                  <option value="{{al.dish_allergy}}">{{al.dish_allergy}}</option>
+                                  {% endfor %}
+                                </select>
+                            <label>Allergies contained: </label>
+                        </div>
+
+                        <div class="switch col s12 m4">
+                            Vegetarian
+                            <label>
+                              
+                              <input id="meat_free" name="meat_free"type="checkbox" value="Vegetarian">
+                              <span class="lever"></span>
+                              Yes
+                            </label>
+                        </div>
+                        <br/>
                         <button class="waves-effect waves-light btn" type="submit" name="action">Add To collection <i class="material-icons">add</i></button>
                     </form>
                 </div>
