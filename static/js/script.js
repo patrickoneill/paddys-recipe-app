@@ -1,16 +1,7 @@
 $(document).ready(function() {
-    $('.sidenav').sidenav();
-});
-$(document).ready(function() {
-    M.updateTextFields();
-});
-$(document).ready(function() {
-    $('select').formSelect();
-});
-$(document).ready(function() {
     $('.collapsible').collapsible();
-});
-$(document).ready(function() {
-    $('select').formSelect();
+    $('select').material_select();
+    $(".sidenav").sideNav();
+    console.log("HERE")
 });
 
