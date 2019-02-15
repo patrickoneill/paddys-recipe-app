@@ -2,7 +2,6 @@ import os
 from flask import Flask, render_template, redirect, url_for, request, session, escape, flash
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
-import bcrypt
 
 app = Flask(__name__)
 app.config["MONGO_DBNAME"] = "recipes-app"
@@ -32,7 +31,6 @@ def add_recipe():
         recipeCollection = mongo.db.recipeCollection
         ingredients = request.form['recipe_ingredients']
         cooking = request.form['recipe_cooking']
-
         recipeCollection.insert({
             'recipe_name': request.form['recipe_name'],
             'recipe_title': request.form['recipe_title'],
