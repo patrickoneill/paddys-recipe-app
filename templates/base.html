@@ -23,16 +23,30 @@
             </ul>
         </div>
     </nav>
-    <ul class="sidenav" id="mobile-demo">
+    <ul class="sidenav orange darken-1" id="mobile-demo">
         <li><a href="{{ url_for('index') }}">Home</a></li>
         <li><a href="{{ url_for('see_recipes') }}">Recipes</a></li>
         <li><a href="{{ url_for('create_recipe') }}">Add a Recipe</a></li>
     </ul>
 
-
-    <div class="row">
-        {% block content %} {% endblock %}
+    <div class="parallax-container">
+        <div class="parallax">
+            <img src="{{ url_for('static', filename='images/anise-aroma-art-277253.jpg') }}">
+        </div>
     </div>
+    <div class="section amber lighten-2">
+        <div class="row container ">
+            <div class="row">
+                {% block content %} {% endblock %}
+            </div>
+        </div>
+    </div>
+    <div class="parallax-container">
+        <div class="parallax"><img src="{{ url_for('static', filename='images/bread-color-cooking-1565982.jpg') }}"></div>
+    </div>
+
+
+
 
     <footer class="page-footer orange darken-1">
         <div class="container">
@@ -80,6 +94,9 @@
 
         $(document).ready(function() {
             $('.sidenav').sidenav();
+        });
+        $(document).ready(function() {
+            $('.parallax').parallax();
         });
     </script>
 </body>
