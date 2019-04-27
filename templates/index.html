@@ -1,8 +1,7 @@
 {% extends 'base.html'%} {% block content %}
 <div class="container orange-text ">
-    <h1>Welcome To Cook and Create!</h1>
-    <hr/>
-    <p>This is a place where you can get come for some of the best recipes that people have post and a chance for you to help built something unique</p>
+    <h1 class="green-text darken-4 center">Welcome To Cook and Create!</h1>
+    <p class="green-text darken-4 center">This is a place where you can get come for some of the best recipes that people have post and a chance for you to help built something unique</p>
 </div>
 <div class="container">
     <div class="row">
@@ -13,7 +12,7 @@
                     <p>Click below to see some of our users favourite dishes and try them out yourself</p>
                 </div>
                 <div class="card-action">
-                    <p><a class="waves-effect waves-light btn-small" href="{{ url_for('see_recipes') }}" role="button">See Recpies</a></p>
+                    <p><a class="waves-effect waves-light btn-small orange darken-1 center" href="{{ url_for('see_recipes') }}" role="button">See Recpies</a></p>
                 </div>
             </div>
         </div>
