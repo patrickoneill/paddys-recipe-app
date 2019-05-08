@@ -5,24 +5,19 @@
             <div class="card light-green darken-4 ">
                 <div class="card-content white-text input-field">
                     <h2 class="center-align">Add Recipe</h2>
-                    <h4 class="center-align">Please complete all fields on the form</h4>
+                    <p class="center-align">*Please complete all fields on the form*</h4>
                     <form action="{{ url_for('add_recipe') }}" method="POST">
                         <div class="row">
                             <div>
                                 <label>
-                                <input id="meat_free" name="meat_free" type="radio" value="meat" />
+                                <input id="meat_free" name="meat_free" type="radio" value="No" checked />
                                 <span>Meat</span>
                             </label>
                             </div>
+                            
                             <div>
                                 <label>
-                                <input id="meat_free" name="meat_free" type="radio" value="Vegan"/>
-                                <span>Vegan</span>
-                                </label>
-                            </div>
-                            <div>
-                                <label>
-                                <input id="meat_free" name="meat_free" type="radio" value="Vegetarian"/>
+                                <input id="meat_free" name="meat_free" type="radio" value="Yes"/>
                                 <span>Vegetarian</span>
                             </label>
                             </div>
@@ -69,6 +64,7 @@
                         </div>
                         <div class="input-field col s12">
                             <select id="allergys" name="dish_allergy" multiple>
+                                <option value="" disabled selected>Choose your option</option>
                                   {% for al in recipeAllergy %}
                                   <option value="{{al.dish_allergy}}">{{al.dish_allergy.upper()}}</option>
                                   {% endfor %}
