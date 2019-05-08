@@ -8,35 +8,30 @@
                     <form action="{{ url_for('add_recipe') }}" method="POST">
                         <div>
                             <label>
-                                <input id="meat_free" name="meat_free" type="radio" value="meat"/>
+                                <input id="meat_free" name="meat_free" type="radio" value="No" checked/>
                                 <span>Meat</span>
                             </label>
                         </div>
+
                         <div>
                             <label>
-                                <input id="meat_free" name="meat_free" type="radio" value="Vegan"/>
-                                <span>Vegan</span>
-                                </label>
-                        </div>
-                        <div>
-                            <label>
-                                <input id="meat_free" name="meat_free" type="radio" value="Vegetarian"/>
+                                <input id="meat_free" name="meat_free" type="radio" value="Yes"/>
                                 <span>Vegetarian</span>
                             </label>
                         </div>
-                        <div class="input-field col s12 m6">
+                        <div class="input-field col s12 m12">
                             <input id="recipe_name" name="recipe_name" type="text" placeholder="Name Of Dish" class="validate" value="{{ task.recipe_name}}">
                         </div>
-                        <div class="input-field col s12 m6">
+                        <div class="input-field col s12 m12">
                             <input id="recipe_title" name="recipe_title" type="text" placeholder="Recipe Name" class="validate" value="{{ task.recipe_title}}">
                         </div>
-                        <div class="input-field col s12 m4">
+                        <div class="input-field col s12 m12">
                             <input id="recipe_serving" type="number" name="recipe_serving" placeholder="People served" class="validate" value="{{ task.recipe_serving}}">
                         </div>
-                        <div class="input-field col s12 m4">
+                        <div class="input-field col s12 m12">
                             <input id="recipe_time_hr" type="number" name="recipe_time_hr" placeholder="Hours:" class="validate" value="{{ task.recipe_time_hr}}">
                         </div>
-                        <div class="input-field col s12 m4">
+                        <div class="input-field col s12 m12">
                             <input id="recipe_time_min" type="number" name="recipe_time_min" placeholder="Minutes:" class="validate" value="{{ task.recipe_time_min}}">
                         </div>
                         <div class="input-field col s12 m12">
@@ -48,29 +43,36 @@
                         <div class="input-field col s12 m12">
                             <input id="recipe_user" class="col s12 m12" type="text" name="recipe_user" placeholder="Submitted by:" value="{{ task.recipe_user}}" />
                         </div>
-
-
+                        <div class="input-field col s12">
+                            <select id="style" name="recipe_meal">
+                                  {% for meal in typeOfMeal %}
+                                  <option value="{{meal.recipe_meal}}">{{meal.recipe_meal.upper()}}</option>
+                                  {% endfor %}
+                                </select>
+                            <label>Meal type: </label>
+                        </div>
                         <div class="input-field col s12">
                             <select id="style" name="recipe_style">
-                                  <option value="" disabled selected>Choose Category</option>
-                                  {% for dish in recipeCat %}
-                                  <option value="{{dish.recipe_style}}">{{dish.recipe_style}}</option>
+                                  {% for dish in categories %}
+                                  <option value="{{dish.recipe_style}}">{{dish.recipe_style.upper()}}</option>
                                   {% endfor %}
                                 </select>
                             <label>Country of Origin: </label>
                         </div>
-
                         <div class="input-field col s12">
                             <select id="allergys" name="dish_allergy" multiple>
-                                  <option value="" disabled selected>Choose Category</option>
-                                  {% for al in recipeAllergy %}
-                                  <option value="{{al.dish_allergy}}">{{al.dish_allergy}}</option>
+                                <option value="" disabled selected>Choose your option</option>
+                                  {% for al in allergy %}
+                                  <option value="{{al.dish_allergy}}">{{al.dish_allergy.upper()}}</option>
                                   {% endfor %}
                                 </select>
                             <label>Allergies contained: </label>
                         </div>
+                        <div class="input-field col s12 m12">
+                            <input id="recipe_score" type="hidden" name="recipe_score" value="0">
+                        </div>
                         <div class="row">
-                            <button class="waves-effect waves-light btn-small right" type="submit" name="action">Add To collection <i class="material-icons">add</i></button>
+                            <button class="btn-floating waves-effect waves-green right" type="submit" name="action"><i class="material-icons">add</i></button>
                         </div>
                     </form>
                 </div>
