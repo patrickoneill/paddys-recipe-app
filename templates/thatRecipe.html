@@ -1,42 +1,46 @@
 {% extends 'base.html'%} {% block content %}
-
 <div class="row">
     <div class="col s12 m12 ">
         <div class="card light-green darken-4">
             <div class="card-content white-text">
                 <div class="row">
-                    <div class="card light-green darken-3 z-depth-5 col s12 m6 left">
+                    <div class="card light-green darken-3 z-depth-5 col s12 m4 left">
                         <ul>
-                            <li>{{ task.recipe_name }} : {{ task.recipe_title }}</li>
+                            <li>{{ task.recipe_name }} </li>
+                            <li>{{ task.recipe_title }}</li>
                         </ul>
                     </div>
-                    <div class="card light-green darken-3 z-depth-5 col s12 m3 right">
-                        Posted by: {{ task.recipe_user }}
+                    <div class="card light-green darken-3 z-depth-5 col s12 m6 right">
+                        <ul>
+                            <li>Cooking Time: {{ task.recipe_time_hr }}hr {{ task.recipe_time_min }}mins</li>
+                            <li>People served: {{ task.recipe_serving }}</li>
+                            <li>Vegetarian: {{ task.meat_free }}</li>
+                            <li>Country of Origin: {{ task.recipe_style.upper() }}</li>
+                        </ul>
                     </div>
+
                 </div>
                 <div class="row">
                     <div class="card col s12 m4 light-green darken-3 z-depth-5">
                         Ingredients: {{ task.recipe_ingredients }}
                     </div>
-                    <div class="card col s12 m8 light-green darken-3 z-depth-5">
+                    <div class="card col s12 m7 light-green darken-3 z-depth-5 right">
                         Cooking steps: {{ task.recipe_cooking }}
                     </div>
                 </div>
-                <div class="row">
-                    <ul>
-                        <li>Cooking Time: {{ task.recipe_time_hr }}hr {{ task.recipe_time_min }}mins</li>
-                        <li>People served: {{ task.recipe_serving }}</li>
-                        <li>Vegetarian: {{ task.meat_free }}</li>
-                        <li>Country of Origin: {{ task.recipe_style.upper() }}</li>
-                    </ul>
-                </div>
+
+
                 <p class="">
                     <a href="{{url_for('delete_recipe', task_id=task._id)}}" class="btn-floating red darken-1 waves-effect btn" role="button"><i class="material-icons">delete_forever</i></a>
                     <a href="#" class="btn-floating  waves-effect btn pink accent-2" role="button"><i class="material-icons">favorite</i></a>
-                    
+
                     <span class="card red accent-4 z-depth-5 right">  Allergines In dish:  {{ task.dish_allergy }} 
                     </span>
                 </p>
+
+            </div>
+            <div class="card white-text light-green darken-3 z-depth-5 col s12 m3 left">
+                Posted by: {{ task.recipe_user }}
             </div>
         </div>
     </div>
