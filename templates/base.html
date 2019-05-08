@@ -14,7 +14,7 @@
 <body>
     <nav>
         <div class="nav-wrapper orange darken-1">
-            <a href="#" class="brand-logo center">C & C</a>
+            <a href="{{url_for('index')}}" class="brand-logo center">C & C</a>
             <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
             <ul id="nav-mobile" class="right hide-on-med-and-down">
                 <li><a href="{{ url_for('index') }}">Home</a></li>
@@ -79,26 +79,8 @@
     <!-- Latest compiled and minified JavaScript -->
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <script type="text/javascript">
-        $(document).ready(function() {
-            $('.collapsible').collapsible();
-        });
-
-        $(document).ready(function() {
-            $('.datepicker').datepicker();
-        });
-
-        $(document).ready(function() {
-            $('select').formSelect();
-        });
-
-        $(document).ready(function() {
-            $('.sidenav').sidenav();
-        });
-        $(document).ready(function() {
-            $('.parallax').parallax();
-        });
-    </script>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+    
 </body>
 
 </html>
