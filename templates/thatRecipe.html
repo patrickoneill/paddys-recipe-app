@@ -1,16 +1,20 @@
 {% extends 'base.html'%} {% block content %}
 <div class="row">
     <div class="col s12 m12 ">
+        <h1 class="center green-text darken-4">{{ task.recipe_name }}</h1>
         <div class="card light-green darken-4">
+            
             <div class="card-content white-text">
+                
                 <div class="row">
+                    
                     <div class="card light-green darken-3 z-depth-5 col s12 m4 left">
                         <ul>
-                            <li>{{ task.recipe_name }} </li>
+                            <li> </li>
                             <li>{{ task.recipe_title }}</li>
                         </ul>
                     </div>
-                    <div class="card light-green darken-3 z-depth-5 col s12 m6 right">
+                    <div class="card light-green darken-3 z-depth-5 col s12 m7 right">
                         <ul>
                             <li>Cooking Time: {{ task.recipe_time_hr }}hr {{ task.recipe_time_min }}mins</li>
                             <li>People served: {{ task.recipe_serving }}</li>
@@ -22,10 +26,10 @@
                 </div>
                 <div class="row">
                     <div class="card col s12 m4 light-green darken-3 z-depth-5">
-                        Ingredients: {{ task.recipe_ingredients }}
+                        Ingredients:<br/>{{ task.recipe_ingredients }}
                     </div>
                     <div class="card col s12 m7 light-green darken-3 z-depth-5 right">
-                        Cooking steps: {{ task.recipe_cooking }}
+                        Cooking steps:<br/> {{ task.recipe_cooking }}
                     </div>
                 </div>
 
@@ -40,7 +44,7 @@
 
             </div>
             
-            <div class="card deep-orange accent-3 z-depth-5 center">  Allergines In dish:  {{ task.dish_allergy }}</div>
+            <div class="card deep-orange accent-3 z-depth-5 center">  Allergens In dish:  {{ task.dish_allergy }}</div>
             <div class="card white-text light-green darken-3 z-depth-5 col s12 m3 left">
                 Posted by: {{ task.recipe_user }}
             </div>
