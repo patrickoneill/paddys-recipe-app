@@ -34,11 +34,13 @@
                     <a href="{{url_for('delete_recipe', task_id=task._id)}}" class="btn-floating red darken-1 waves-effect btn" role="button"><i class="material-icons">delete_forever</i></a>
                     <a href="#" class="btn-floating  waves-effect btn pink accent-2" role="button"><i class="material-icons">favorite</i></a>
 
-                    <span class="card red accent-4 z-depth-5 right">  Allergines In dish:  {{ task.dish_allergy }} 
+                    <span 
                     </span>
                 </p>
 
             </div>
+            
+            <div class="card deep-orange accent-3 z-depth-5 center">  Allergines In dish:  {{ task.dish_allergy }}</div>
             <div class="card white-text light-green darken-3 z-depth-5 col s12 m3 left">
                 Posted by: {{ task.recipe_user }}
             </div>
