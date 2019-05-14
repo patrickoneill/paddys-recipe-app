@@ -98,6 +98,8 @@ In this project I used mLab as the database.
 Working with the database was interesting seeing how handy it is to populate 
 data to a page and in reverse with the right functions
 
+#### Wireframe
 
+![DSC_0488](https://user-images.githubusercontent.com/33999607/57730106-a872af80-768f-11e9-91bb-6602124ad6ca.JPG)
 
 
